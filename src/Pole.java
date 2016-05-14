@@ -5,8 +5,9 @@ public class Pole {
     private int POLE_SIZE = 0 ;
     private int lineSize = 0;
 
-    public Pole(int pole_size) {
+    public Pole(int pole_size, int lineSize) {
         this.POLE_SIZE = pole_size ;
+        this.lineSize = lineSize;
     }
 
     public boolean hasCleanCell() {
