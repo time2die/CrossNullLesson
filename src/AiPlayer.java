@@ -6,4 +6,6 @@ public abstract class AiPlayer implements Player {
     public String getName() {
         return "Ai";
     }
+
+    public abstract void setChar(char aChar);
 }
