@@ -35,6 +35,6 @@ public class DumpAiPlayer extends AiPlayer {
 
     @Override
     public char getChar() {
-        return 'C';
+        return aChar;
     }
 }
