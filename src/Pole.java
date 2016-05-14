@@ -33,8 +33,25 @@ public class Pole {
         return false;
     }
 
+    // проверка на корректность координат 
     public boolean canMakeStep(Point2d step) {
-        return false;
+        boolean isEmpty = true;
+        int str = step.getY();
+        int col = step.getX();
+
+        // Проверка на ...
+        if(str<0 || col<0){// ... отрицательные индексы
+            //System.out.println("Координаты не могут быть меньше или равны 0! ");
+            isEmpty = false;
+        }else if(str>pole[0].length-1 || col>pole.length-1){// ... выход за пределы поля
+            //System.out.println("Координаты не могут быть больше размера игрового поля! ");
+            isEmpty = false;
+        }else if(pole[str][col] != '*'){// ... свободная ячейка
+            //System.out.println("Ячейка занята! ");
+            isEmpty = false;
+        }
+
+        return isEmpty;
     }
 
     public void step(Point2d step, char aChar) {
