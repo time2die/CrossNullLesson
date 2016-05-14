@@ -21,7 +21,15 @@ public class Pole {
         }
     }
 
+    // есть ли свободные клетки
     public boolean hasCleanCell() {
+        for(int i = 0; i < POLE_SIZE; i++){
+            for(int j = 0; j < POLE_SIZE; j++){
+                if(pole[i][j] == '*'){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
