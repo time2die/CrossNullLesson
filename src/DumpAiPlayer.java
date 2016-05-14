@@ -4,12 +4,18 @@ public class DumpAiPlayer extends AiPlayer {
     private Random rnd = new Random() ;
 
     private int POLE_SIZE = 0 ;
+    private char aChar = 'C';
+
     public DumpAiPlayer(int pole_size) {
         this.POLE_SIZE = pole_size ;
     }
 
     public int getRndInt(){
         return rnd.nextInt(POLE_SIZE) ;
+    }
+
+    public void setChar(char aChar){
+        this.aChar = aChar;
     }
 
     @Override
