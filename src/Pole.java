@@ -33,7 +33,7 @@ public class Pole {
         return false;
     }
 
-    // проверка на корректность координат 
+    // проверка на корректность координат
     public boolean canMakeStep(Point2d step) {
         boolean isEmpty = true;
         int str = step.getY();
@@ -55,7 +55,10 @@ public class Pole {
     }
 
     public void step(Point2d step, char aChar) {
+        int str = step.getY();
+        int col = step.getX();
 
+        pole[str][col] = aChar;
     }
 
     public boolean isAnobodyWin() {
