@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 public class HumanPlayer implements Player {
-    private Scanner sc = new Scanner(System.in) ;
 
+    private Scanner sc = new Scanner(System.in) ;
     private String playerName ;
+    private char aChar = 'H';
+
     public HumanPlayer(String humanName) {
         this.playerName = humanName ;
     }
@@ -31,7 +33,12 @@ public class HumanPlayer implements Player {
     }
 
     @Override
+    public void setChar(char aChar) {
+        this.aChar = aChar;
+    }
+
+    @Override
     public char getChar() {
-        return 'H';
+        return aChar;
     }
 }
