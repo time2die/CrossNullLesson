@@ -213,8 +213,28 @@ public class Pole {
         return anobodyWin;
     }
 
-
+    // печать игрового поля в консоли
     public void printPole() {
 
+        int strLength = pole.length;
+        int colLength = pole[0].length;
+
+        for(int i = 0; i < strLength + 1; i++){
+            System.out.println();
+            for(int j = 0; j < colLength + 1; j++){
+
+                if(i == 0 && j == 0){// не заполняемый угол
+                    System.out.printf("%5s","");
+                }else if(i == 0){// нумерация столбцов
+                    System.out.printf("%5s", j);
+                }else if(j == 0){// нумерация строк
+                    System.out.printf("%5s", i);
+                }else {
+                    System.out.printf("%5s", pole[i - 1][j - 1]);
+                }
+            }
+            System.out.println();
+        }
+        System.out.print("\n\n");
     }
 }
