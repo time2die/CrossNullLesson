@@ -28,7 +28,7 @@ public class Main {
         }
     }
 
-    private void init(){
+    private void init() {
         // read POLE SIZE FROM IN
         // decide who will play
         Scanner sc = new Scanner(System.in);
@@ -49,7 +49,7 @@ public class Main {
 
         sc.nextLine();
 
-        switch (select){
+        switch (select) {
             case 1:// human vs human
                 System.out.println("input name one");
                 String humanName1 = sc.nextLine();
@@ -83,7 +83,7 @@ public class Main {
             Point2d step = player.getNextStep();
             pMakeStep = gamePole.canMakeStep(step);
             if (pMakeStep) {
-                gamePole.step(step,player.getChar());
+                gamePole.step(step, player.getChar());
                 gamePole.printPole();
                 if (gamePole.isAnobodyWin(player.getChar())) {
                     System.out.println("winner is: " + player.getName() + "_" + player.getChar());

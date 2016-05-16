@@ -2,12 +2,15 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 
 public interface Player {
-    int getNextX() ;
-    int getNextY() ;
+    int getNextX();
 
-    Point2d getNextStep() ;
+    int getNextY();
+
+    Point2d getNextStep();
+
     String getName();
 
     void setChar(char aChar);
+
     char getChar();
 }
