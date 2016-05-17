@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
-public class HumanPlayer implements Player {
+public class HumanPlayer extends AbstractPlayer {
 
     private Scanner sc = new Scanner(System.in);
     private String playerName;
-    private char aChar = 'H';
+
 
     public HumanPlayer(String humanName) {
         this.playerName = humanName;
+        this.aChar = 'H';
     }
 
     @Override
@@ -32,13 +33,5 @@ public class HumanPlayer implements Player {
         return playerName;
     }
 
-    @Override
-    public void setChar(char aChar) {
-        this.aChar = aChar;
-    }
 
-    @Override
-    public char getChar() {
-        return aChar;
-    }
 }
