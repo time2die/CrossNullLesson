@@ -4,6 +4,7 @@ public class DumpAiPlayer extends AiPlayer {
     private Random rnd = new Random() ;
 
     private int POLE_SIZE = 0 ;
+
     public DumpAiPlayer(int pole_size) {
         this.POLE_SIZE = pole_size ;
     }
@@ -30,5 +31,10 @@ public class DumpAiPlayer extends AiPlayer {
     @Override
     public char getChar() {
         return 'C';
+    }
+
+    @Override
+    public void setChar(char aChar) {
+
     }
 }

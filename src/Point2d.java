@@ -1,6 +1,8 @@
 /**
  * Created by time2die on 10.05.2016.
  */
+
+
 public class Point2d {
 
     public Point2d(int x , int y ){
@@ -23,7 +25,8 @@ public class Point2d {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY (int y){
+        this.y= y;
+
     }
 }
