@@ -1,3 +1,5 @@
+package lessons.crossline;
+
 /**
  * Created by time2die on 16.05.2016.
  */

@@ -1,4 +1,6 @@
-import data.Point2d;
+package lessons.crossline;
+
+import lessons.crossline.data.Point2d;
 
 import java.util.Random;
 

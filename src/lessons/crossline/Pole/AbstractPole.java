@@ -1,6 +1,6 @@
-package Pole;
+package lessons.crossline.Pole;
 
-import data.Point2d;
+import lessons.crossline.data.Point2d;
 
 /**
  * Created by time2die on 16.05.2016.

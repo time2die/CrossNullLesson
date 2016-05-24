@@ -1,6 +1,4 @@
-package data;
-
-import java.util.Objects;
+package lessons.crossline.data;
 
 /**
  * Created by time2die on 10.05.2016.

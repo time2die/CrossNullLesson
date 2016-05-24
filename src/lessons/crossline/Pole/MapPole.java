@@ -1,6 +1,6 @@
-package Pole;
+package lessons.crossline.Pole;
 
-import data.Point2d;
+import lessons.crossline.data.Point2d;
 
 import java.util.HashMap;
 
