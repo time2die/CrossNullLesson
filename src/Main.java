@@ -1,27 +1,33 @@
+import Pole.ArrayCharPole;
+import Pole.Pole;
+import data.Point2d;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        new Main().play();
+       // new Main().play();
+//       new  HomeWorkAnswer().work() ;
+        new CunCurExample().example();
     }
 
 
     Player p1;
     Player p2;
-    Pole gamePole;
+    Pole gameArrayCharPole;
 
     private void play() {
         init();
         boolean gameEnd = false;
 
         while (!gameEnd) {
-            makeStep(p1, gamePole);
-            if (!gamePole.hasCleanCell()) {
+            makeStep(p1, gameArrayCharPole);
+            if (!gameArrayCharPole.hasCleanCell()) {
                 System.out.println("nobody win");
                 System.exit(0);
             }
-            makeStep(p2, gamePole);
-            if (!gamePole.hasCleanCell()) {
+            makeStep(p2, gameArrayCharPole);
+            if (!gameArrayCharPole.hasCleanCell()) {
                 System.out.println("nobody win");
                 System.exit(0);
             }
@@ -74,18 +80,18 @@ public class Main {
                 break;
         }
 
-        gamePole = new Pole(POLE_SIZE, lineSize);
+        gameArrayCharPole = new ArrayCharPole(POLE_SIZE, lineSize);
     }
 
-    private void makeStep(Player player, Pole gamePole) {
+    private void makeStep(Player player, Pole gameArrayCharPole) {
         boolean pMakeStep = false;
         while (!pMakeStep) {
             Point2d step = player.getNextStep();
-            pMakeStep = gamePole.canMakeStep(step);
+            pMakeStep = gameArrayCharPole.canMakeStep(step);
             if (pMakeStep) {
-                gamePole.step(step, player.getChar());
-                gamePole.printPole();
-                if (gamePole.isAnobodyWin(player.getChar())) {
+                gameArrayCharPole.step(step, player.getChar());
+                gameArrayCharPole.printPole();
+                if (gameArrayCharPole.isAnobodyWin(player.getChar())) {
                     System.out.println("winner is: " + player.getName() + "_" + player.getChar());
                     System.exit(0);
                 }
