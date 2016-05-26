@@ -16,8 +16,6 @@ public class Task6 {
 
     public void start() {
 
-        //ReadInput readInput = new ReadInput();// объект класа ReadInput
-
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
 
@@ -34,7 +32,9 @@ public class Task6 {
         //-------------
         ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(stringArray));// String -> List
 
+        // множество уникальных слов
         Set<String> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
+
         HashMap<String, Integer> mapFrequency = new HashMap<>();// создать Карту
         TreeMap<Integer, String> mapFreqSortA = new TreeMap<>();// создать Карту
 
@@ -45,8 +45,7 @@ public class Task6 {
             String val = iter.next();// сохраним очередное значение множества setOne...
             int freq = Collections.frequency(arrayList, val);// сохраним его частоту
 
-            // ... это значение -> ключ к Map;
-            // ... частота его в arrayList -> значение Map
+            //1. уникальное слово - ключ, а его частота - значение
             mapFrequency.put(val, freq);
 
             // Сортировка: если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
@@ -54,15 +53,28 @@ public class Task6 {
                 val = mapFreqSortA.get(freq)+" "+val;
             }
 
-            //1. Сортировка частот слов по возрастанию ключа (TreeMap)
+            //2. Сортировка частот слов по возрастанию ключа (TreeMap)
+            //частота - ключ, а уникальные слова с такой частотой - значение
+            //слова с одинаковой частотой складываются в строку через пробел
             mapFreqSortA.put(freq,val);
         }
 
-        // 2. Сортировка частот слов по убыванию ключа
+        //3. Сортировка частот слов по убыванию ключа
         TreeMap<Integer, String> mapFreqSortD = new TreeMap(Collections.reverseOrder());
         mapFreqSortD.putAll(mapFreqSortA);
 
-        System.out.println(mapFreqSortD);
+        // выводим на экран первые топ 10 слов
+        int i = 0;
+        for(Map.Entry e : mapFreqSortD.entrySet()){
+            System.out.println(e.getKey()+" "+ e.getValue());
+            i++;
+            if(i==10){
+                break;
+            }
+        }
+
+        // количество уникальных слов
+        System.out.println("\n" + setOne.size());
 
     }
 
