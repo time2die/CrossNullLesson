@@ -16,7 +16,7 @@ public class Task6 {
 
     public void start() {
 
-        ReadInput readInput = new ReadInput();// объект класа ReadInput
+        //ReadInput readInput = new ReadInput();// объект класа ReadInput
 
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
