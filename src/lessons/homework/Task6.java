@@ -36,6 +36,8 @@ public class Task6 {
 
         Set<String> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
         HashMap<String, Integer> mapFrequency = new HashMap<>();// создать Карту
+        TreeMap<String, Integer> mapFreqSort = new TreeMap<>();// создать Карту
+
         // заполнить Карту:
         // ключ Карты - уникальное значение из множетва setOne
         // значение Карты - частота встречаемости каждого ключа данной Карты (значение setOne) в listOne
