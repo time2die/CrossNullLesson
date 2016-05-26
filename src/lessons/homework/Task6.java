@@ -23,13 +23,6 @@ public class Task6 {
         stringList.addAll(ReadInput.readText());
 
         //- посчитать частотность повторения всех слов и вывести на экран топ 10
-        /*
-        ArrayList<String> removeList = new ArrayList<>();
-        removeList.add("As");
-        stringList.add("As As AA");
-        stringList.removeAll(removeList);
-        */
-
         String strArray = stringList.toString();// List -> String
 
         // очистка слов - удаляем "лишние" символы, оставляем все буквы и пробелы
