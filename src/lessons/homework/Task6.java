@@ -36,7 +36,7 @@ public class Task6 {
 
         Set<String> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
         HashMap<String, Integer> mapFrequency = new HashMap<>();// создать Карту
-        TreeMap<Integer, String> mapFreqSort = new TreeMap<>();// создать Карту
+        TreeMap<Integer, String> mapFreqSortA = new TreeMap<>();// создать Карту
 
         // заполнить Карту:
         // ключ Карты - уникальное значение из множетва setOne
@@ -50,15 +50,19 @@ public class Task6 {
             mapFrequency.put(val, freq);
 
             // Сортировка: если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
-            if(mapFreqSort.containsKey(freq)){
-                val = mapFreqSort.get(freq)+" "+val;
+            if(mapFreqSortA.containsKey(freq)){
+                val = mapFreqSortA.get(freq)+" "+val;
             }
 
-            // Сортированная по возрастанию ключа (TreeMap) карта частот
-            mapFreqSort.put(freq,val);
+            //1. Сортировка частот слов по возрастанию ключа (TreeMap)
+            mapFreqSortA.put(freq,val);
         }
 
-        System.out.println(mapFreqSort);
+        // 2. Сортировка частот слов по убыванию ключа
+        TreeMap<Integer, String> mapFreqSortD = new TreeMap(Collections.reverseOrder());
+        mapFreqSortD.putAll(mapFreqSortA);
+
+        System.out.println(mapFreqSortD);
 
     }
 
