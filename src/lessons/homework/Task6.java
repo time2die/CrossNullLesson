@@ -56,26 +56,6 @@ public class Task6 {
 
         System.out.println(mapFrequency);
 
-        /**/
-
-        /*
-
-        Set<String> setOne = new HashSet<>(stringList);// множество значений stringList для ключей Map
-
-        // заполнить Карту:
-        // ключ Карты - уникальное значение из множетва setOne
-        // значение Карты - частота встречаемости каждого ключа данной Карты (значение setOne) в listOne
-        for(Iterator<String> iter = setOne.iterator(); iter.hasNext();){// проходимся итератором по множеству setOne
-            String val = iter.next();// сохраним очередное значение множества setOne...
-            // ... это значение -> ключ к Map;
-            // ... частоту его в listOne -> значение Map
-            Map1.put(val, Collections.frequency(stringList, val));
-            //Map1.put(val, Collections.frequency(stringList, "\b"));
-        }
-
-        System.out.println(Map1 + "  Map1 - карта частоты встречаемости каждого уникального элемента в listOne");
-        */
-
     }
 
 }
