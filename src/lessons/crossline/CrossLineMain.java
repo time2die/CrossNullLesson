@@ -21,7 +21,7 @@ public class CrossLineMain {
         boolean gameEnd = false;
 
         while (!gameEnd) {
-            playerStep(p1);
+            playerStep(p1); 
             playerStep(p2);
         }
     }
