@@ -54,6 +54,7 @@ public class Task6 {
         mapFreqSortD.putAll(mapFreqSortA);
 
         // выводим на экран первые топ 10 слов
+        System.out.println("первые топ 10 слов");
         int i = 0;
         for(Map.Entry e : mapFreqSortD.entrySet()){
             System.out.println(e.getKey()+" "+ e.getValue());
@@ -64,7 +65,7 @@ public class Task6 {
         }
 
         // количество уникальных слов
-        System.out.println("\n" + setOne.size());
+        System.out.println("\n количество уникальных слов:  " + setOne.size());
      /*   */
     }
 
