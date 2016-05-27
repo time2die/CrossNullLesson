@@ -21,20 +21,8 @@ public class CrossLineMain {
         boolean gameEnd = false;
 
         while (!gameEnd) {
-            playerStep(p1, gameArrayCharPole);
-            playerStep(p2, gameArrayCharPole);
-            /*
-            makeStep(p1, gameArrayCharPole);
-            if (!gameArrayCharPole.hasCleanCell()) {
-                System.out.println("nobody win");
-                System.exit(0);
-            }
-            makeStep(p2, gameArrayCharPole);
-            if (!gameArrayCharPole.hasCleanCell()) {
-                System.out.println("nobody win");
-                System.exit(0);
-            }
-            */
+            playerStep(p1);
+            playerStep(p2);
         }
     }
 
@@ -104,9 +92,9 @@ public class CrossLineMain {
         }
     }
 
-    private void playerStep(Player p, Pole pole){
-        makeStep(p, pole);
-        if (!pole.hasCleanCell()) {
+    private void playerStep(Player p){
+        makeStep(p, gameArrayCharPole);
+        if (!gameArrayCharPole.hasCleanCell()) {
             System.out.println("nobody win");
             System.exit(0);
         }
