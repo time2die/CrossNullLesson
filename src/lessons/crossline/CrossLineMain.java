@@ -21,8 +21,7 @@ public class CrossLineMain {
         boolean gameEnd = false;
 
         while (!gameEnd) {
-            playerStep(p1);
-            playerStep(p2);
+            gameStep(p1, p2);
         }
     }
 
@@ -98,5 +97,10 @@ public class CrossLineMain {
             System.out.println("nobody win");
             System.exit(0);
         }
+    }
+
+    private void gameStep(Player pp1, Player pp2){
+        playerStep(pp1);
+        playerStep(pp2);
     }
 }
