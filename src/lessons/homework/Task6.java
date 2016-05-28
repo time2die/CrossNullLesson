@@ -48,7 +48,7 @@ public class Task6 {
     }
 
     private static Map<String, AtomicLong> getTopWords(Map<String, AtomicLong> map, Long qty ) {
-            Map<String, AtomicLong> result = new LinkedHashMap<>();
+            Map<String, AtomicLong> result = Collections.synchronizedMap(new LinkedHashMap<>());
             //компаратора по value не нашел, выбирать 10 топов в цикле скучно, сортирую стримами
             Stream<Map.Entry<String, AtomicLong>> st = map.entrySet().parallelStream(); //создаю параллельный стрим с энтрями мапы
 
@@ -70,7 +70,7 @@ public class Task6 {
     }
 
     private static Map<String, AtomicLong> getTopSingleWords(Map<String, AtomicLong> map) {
-        Map<String, AtomicLong> result = new LinkedHashMap<>();
+        Map<String, AtomicLong> result = Collections.synchronizedMap(new LinkedHashMap<>());
         Stream<Map.Entry<String, AtomicLong>> st = map.entrySet().parallelStream(); //создаю параллельный стрим с энтрями мапы
 
         st.sorted( Map.Entry.comparingByValue((value1, value2)-> ((Long) value2.get()).compareTo(value1.get())) ) // сортирую
