@@ -22,15 +22,15 @@ public class Task6 {
         final Map<String, AtomicLong> wordsMap = Collections.synchronizedMap(new LinkedHashMap<>());
         final Map<Character, AtomicLong> charsMap = Collections.synchronizedMap(new LinkedHashMap<>());
         //Что считать словом не ясно, буду считать все что попадает под паттерн ниже, но в него попадет много однобуквенного мусора
-        final Pattern pattern = Pattern.compile("(^[а-яёА-ЯЁa-zA-Z]+$)");
+        final Pattern pattern = Pattern.compile("([^а-яёА-ЯЁa-zA-Z])");
 
         book.parallelStream().forEach(row -> {
             //разбиваю строку на "слова" по табу, пробелу.
             final List<String> stringList= Arrays.asList(row.split("\\p{P}?[\\s\\t]+"));
 
             for (String word: stringList){
-                word = word.replaceAll("[\\[.?!)(,:]", "" ).toLowerCase(); //очищаю строки от знаков препинания и привожу все символы к нижнему регистру
-                if (pattern.matcher(word).matches()){
+                word = word.replaceAll(String.valueOf(pattern), "" ).toLowerCase(); //очищаю строки от знаков препинания и привожу все символы к нижнему регистру
+                if (!word.equals("")){ //после чистки слова может не остаться
                     wordsMap.putIfAbsent(word, new AtomicLong(0)); //если ключ не существует, то создать
                     Long counter = wordsMap.get(word).incrementAndGet(); //увеличить счетчик и получить его для сравнения в топе
                 }
