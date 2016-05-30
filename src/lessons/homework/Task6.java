@@ -25,12 +25,6 @@ public class Task6 {
         // карта частот слов
         TreeMap<Integer, String> mapFreqWord = frequencyMapWord(wordsList);
 
-        // разбивка на символы без очистки
-        ArrayList<Character>  charList = splitCharList(stringList);
-
-        // карта частот символов
-        TreeMap<Integer, Character> mapFreqChar =  frequencyMapChar(charList);
-
         // разбивка на символы с очисткой от небуквенных символов
         ArrayList<Character>  charListClear = splitCharList(wordsList);
 
@@ -48,19 +42,8 @@ public class Task6 {
             }
         }
 
-        // выводим на экран первые топ 5 неочищенных символов
-        System.out.println("первые топ 5 неочищенных символов");
-        int count1 = 0;
-        for(Map.Entry e : mapFreqChar.entrySet()){
-            System.out.println(e.getKey()+" "+ e.getValue());
-            count1++;
-            if(count1==5){
-                break;
-            }
-        }
-
         // выводим на экран первые топ 5 очищенных символов
-        System.out.println("первые топ 5 очищенных символов");
+        System.out.println("первые топ 5 символов");
         int count2 = 0;
         for(Map.Entry e : mapFreqCharClear.entrySet()){
             System.out.println(e.getKey()+" "+ e.getValue());
@@ -76,10 +59,10 @@ public class Task6 {
 
     }
 
-
     /**
      *  Разбивка на символы
      * */
+
     public ArrayList<Character> splitCharList(List<String>stringListIn){
 
         ArrayList<Character>charList = new ArrayList<>();
@@ -113,28 +96,6 @@ public class Task6 {
         }
 
         return stringListOut;
-    }
-
-    /**
-     *  Разбивка на слова и очистка. Возввращает StringBuffer
-     * */
-    public StringBuffer splitWord(List<String>stringList){
-        StringBuffer strBuff = new StringBuffer();
-
-        strBuff.append(stringList);// List -> StringBuffer
-
-        Character ch;
-
-        for(int i=0; i < strBuff.length(); i++) {
-            ch = strBuff.charAt(i);
-
-            // перевод всех символов в нижний регистр
-            strBuff.setCharAt(i,Character.toLowerCase(ch));
-
-            // замена всех небуквенных символов на перенос строки
-            if(!Character.isLetter(ch)) strBuff.setCharAt(i,'\n');
-        }
-        return strBuff;
     }
 
     /**
@@ -212,6 +173,63 @@ public class Task6 {
         mapFreqSortD.putAll(mapFreqSortA);
 
         return mapFreqSortD;
+    }
+
+
+    /**
+     *  Разбивка на слова и очистка. Возввращает StringBuffer
+     * */
+    public StringBuffer splitWord(List<String>stringList){
+        StringBuffer strBuff = new StringBuffer();
+
+        strBuff.append(stringList);// List -> StringBuffer
+
+        Character ch;
+
+        for(int i=0; i < strBuff.length(); i++) {
+            ch = strBuff.charAt(i);
+
+            // перевод всех символов в нижний регистр
+            strBuff.setCharAt(i,Character.toLowerCase(ch));
+
+            // замена всех небуквенных символов на перенос строки
+            if(!Character.isLetter(ch)) strBuff.setCharAt(i,'\n');
+        }
+        return strBuff;
+    }
+
+    /**
+     * Вывод на экран первые Top N значений карты частот
+     * */
+    public void printTop(){
+
+    }
+
+    /**
+     * Байты - эксперимент
+     * */
+
+    public List<Object> splitCharList1(List<String>stringListIn){
+
+        List<Object> objectList = new ArrayList<>();
+
+        for(int i=0;i<stringListIn.size();i++) {
+            String str = stringListIn.get(i);
+            byte[] bytArr = str.getBytes();
+
+            //String str1 = Arrays.toString(bytArr);//1
+            //String str2 = new String(bytArr);//2 !!!
+
+            Collections.addAll(objectList, bytArr);
+            //objectList.addAll(Arrays.asList(bytArr));
+        }
+
+        String str2 = new String((byte[]) objectList.get(123));
+        char ch = str2.charAt(0);
+        System.out.println(str2);
+        System.out.println(ch);
+
+        return objectList;
     }
 
 }
