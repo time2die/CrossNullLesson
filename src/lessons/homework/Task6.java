@@ -1,7 +1,7 @@
 package lessons.homework;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -19,8 +19,8 @@ public class Task6 {
     public void start(){
         final List<String> book = ReadInput.readText();
         //мапы для подсчета количества слов и букв. Коллекция и счетчик готовы для многопоточности
-        final Map<String, AtomicLong> wordsMap = Collections.synchronizedMap(new LinkedHashMap<>());
-        final Map<Character, AtomicLong> charsMap = Collections.synchronizedMap(new LinkedHashMap<>());
+        final Map<String, AtomicLong> wordsMap = new ConcurrentHashMap<>();
+        final Map<Character, AtomicLong> charsMap = new ConcurrentHashMap<>();
         //Что считать словом не ясно, буду считать все что попадает под паттерн ниже, но в него попадет много однобуквенного мусора
         final Pattern pattern = Pattern.compile("([^а-яёА-ЯЁa-zA-Z])");
 
@@ -48,7 +48,7 @@ public class Task6 {
     }
 
     private static Map<String, AtomicLong> getTopWords(Map<String, AtomicLong> map, Long qty ) {
-            Map<String, AtomicLong> result = Collections.synchronizedMap(new LinkedHashMap<>());
+            Map<String, AtomicLong> result = new ConcurrentHashMap<>();
             //компаратора по value не нашел, выбирать 10 топов в цикле скучно, сортирую стримами
             Stream<Map.Entry<String, AtomicLong>> st = map.entrySet().parallelStream(); //создаю параллельный стрим с энтрями мапы
 
@@ -60,7 +60,7 @@ public class Task6 {
 
     private static Map<Character, AtomicLong> getTopChars(Map<Character, AtomicLong> map, Long qty ) {
         // а дженерики я еще ен понял, потому повторный код
-        Map<Character, AtomicLong> result = Collections.synchronizedMap(new LinkedHashMap<>());
+        Map<Character, AtomicLong> result = new ConcurrentHashMap<>();
         Stream<Map.Entry<Character, AtomicLong>> st = map.entrySet().parallelStream();
 
         st.sorted( Map.Entry.comparingByValue((value1, value2)-> ((Long) value2.get()).compareTo(value1.get())) )
@@ -70,7 +70,7 @@ public class Task6 {
     }
 
     private static Map<String, AtomicLong> getTopSingleWords(Map<String, AtomicLong> map) {
-        Map<String, AtomicLong> result = Collections.synchronizedMap(new LinkedHashMap<>());
+        Map<String, AtomicLong> result = new ConcurrentHashMap<>();
         Stream<Map.Entry<String, AtomicLong>> st = map.entrySet().parallelStream(); //создаю параллельный стрим с энтрями мапы
 
         st.sorted( Map.Entry.comparingByValue((value1, value2)-> ((Long) value2.get()).compareTo(value1.get())) ) // сортирую
