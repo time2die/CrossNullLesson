@@ -102,7 +102,8 @@ public class Task7 {
     public TreeMap<Integer, String> frequencyMapWord(ArrayList<String>arrayList){
         // множество уникальных слов
         Set<String> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
-        TreeMap<Integer, String> mapFreqSortA = new TreeMap<>();// создать Карту
+        // создать TreeMap с сортировкой по убыванию ключа
+        TreeMap<Integer, String> mapFreqSortA = new TreeMap(Collections.reverseOrder());
 
         // заполнить Карту:
         for(String setIter : setOne){// для каждой строки из множества setOne
@@ -117,11 +118,7 @@ public class Task7 {
             mapFreqSortA.put(freq,setIter);
         }
 
-        // Сортировка частот слов по убыванию ключа
-        TreeMap<Integer, String> mapFreqSortD = new TreeMap(Collections.reverseOrder());
-        mapFreqSortD.putAll(mapFreqSortA);
-
-        return mapFreqSortD;
+        return mapFreqSortA;
     }
 
     /**
@@ -130,20 +127,15 @@ public class Task7 {
     public TreeMap<Integer, Character> frequencyMapChar(ArrayList<Character>arrayList){
         // множество уникальных слов
         HashSet<Character> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
-        TreeMap<Integer, Character> mapFreqSortA = new TreeMap<>();// создать Карту
+        // создать TreeMap с сортировкой по убыванию ключа
+        TreeMap<Integer, Character> mapFreqSortA = new TreeMap(Collections.reverseOrder());
 
         // заполнить Карту:
         for(Character setIter : setOne){// для каждого символа из множества setOne
-            int freq = Collections.frequency(arrayList, setIter);// сохраним его частоту
-            mapFreqSortA.put(freq,setIter);
+            mapFreqSortA.put(Collections.frequency(arrayList,setIter), setIter);// сохраним частоту и значение
         }
 
-        // Сортировка частот слов по убыванию ключа
-        TreeMap<Integer, Character> mapFreqSortD = new TreeMap(Collections.reverseOrder());
-        mapFreqSortD.putAll(mapFreqSortA);
-
-        return mapFreqSortD;
+        return mapFreqSortA;
     }
-
 
 }
