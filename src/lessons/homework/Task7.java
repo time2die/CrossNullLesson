@@ -105,28 +105,18 @@ public class Task7 {
     public TreeMap<Integer, String> frequencyMapWord(ArrayList<String>arrayList){
         // множество уникальных слов
         Set<String> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
-
-        //HashMap<String, Integer> mapFrequency = new HashMap<>();// создать Карту
         TreeMap<Integer, String> mapFreqSortA = new TreeMap<>();// создать Карту
 
         // заполнить Карту:
-        // ключ Карты - уникальное значение из множетва setOne
-        // значение Карты - частота встречаемости каждого ключа данной Карты (значение setOne) в listOne
         for(Iterator<String> iter = setOne.iterator(); iter.hasNext();){// проходимся итератором по множеству setOne
             String val = iter.next();// сохраним очередное значение множества setOne...
             int freq = Collections.frequency(arrayList, val);// сохраним его частоту
 
-            //1. уникальное слово - ключ, а его частота - значение
-            //mapFrequency.put(val, freq);
-
-            // Сортировка: если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
+            // Для сортировки - если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
             if(mapFreqSortA.containsKey(freq)){
                 val = mapFreqSortA.get(freq)+" "+val;
             }
-
-            //2. Сортировка частот слов по возрастанию ключа (TreeMap)
-            //частота - ключ, а уникальные слова с такой частотой - значение
-            //слова с одинаковой частотой складываются в строку через пробел
+            // Сортировка частот слов по возрастанию ключа (TreeMap)
             mapFreqSortA.put(freq,val);
         }
 
@@ -143,29 +133,12 @@ public class Task7 {
     public TreeMap<Integer, Character> frequencyMapChar(ArrayList<Character>arrayList){
         // множество уникальных слов
         HashSet<Character> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
-
-        //HashMap<Character, Integer> mapFrequency = new HashMap<>();// создать Карту
         TreeMap<Integer, Character> mapFreqSortA = new TreeMap<>();// создать Карту
 
         // заполнить Карту:
-        // ключ Карты - уникальное значение из множетва setOne
-        // значение Карты - частота встречаемости каждого ключа данной Карты (значение setOne) в listOne
         for(Iterator<Character> iter = setOne.iterator(); iter.hasNext();){// проходимся итератором по множеству setOne
             char val = iter.next();// сохраним очередное значение множества setOne...
             int freq = Collections.frequency(arrayList, val);// сохраним его частоту
-
-            //1. уникальное слово - ключ, а его частота - значение
-            //mapFrequency.put(val, freq);
-
-            // Сортировка: если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
-            /*
-            if(mapFreqSortA.containsKey(freq)){
-                val = mapFreqSortA.get(freq)+' '+val;
-            }
-            */
-            //2. Сортировка частот слов по возрастанию ключа (TreeMap)
-            //частота - ключ, а уникальные слова с такой частотой - значение
-            //слова с одинаковой частотой складываются в строку через пробел
             mapFreqSortA.put(freq,val);
         }
 
