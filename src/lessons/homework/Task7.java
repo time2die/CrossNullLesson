@@ -113,6 +113,7 @@ public class Task7 {
             int freq = Collections.frequency(arrayList, val);// сохраним его частоту
 
             // Для сортировки - если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
+            // иначе произойдет замена одного слова другим
             if(mapFreqSortA.containsKey(freq)){
                 val = mapFreqSortA.get(freq)+" "+val;
             }
