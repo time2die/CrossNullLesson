@@ -114,7 +114,7 @@ public class Task7 {
             if(mapFreqSortA.containsKey(freq)){
                 setIter = mapFreqSortA.get(freq)+" "+setIter;
             }
-            // Сортировка частот слов по возрастанию ключа (TreeMap)
+            // Сортировка частот слов по убыванию ключа
             mapFreqSortA.put(freq,setIter);
         }
 
