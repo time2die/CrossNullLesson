@@ -68,12 +68,10 @@ public class Task7 {
 
         ArrayList<Character>charList = new ArrayList<>();
 
-        for(int i = 0; i < stringListIn.size(); i++) {
-            String str = stringListIn.get(i);
+        for(String str : stringListIn){// для каждой строки из коллекции
             str = str.toLowerCase();// перевод всех символов в нижний регистр
-            char[] ch = str.toCharArray();
-            for (int j = 0; j < ch.length; j++) {
-                charList.add(ch[j]);
+            for(char ch : str.toCharArray()){// для каждого символа из строки
+                charList.add(ch);
             }
         }
 
@@ -86,9 +84,8 @@ public class Task7 {
     public ArrayList<String> splitWordList(List<String>stringListIn){
         ArrayList<String>stringListOut = new ArrayList<>();
 
-        for(int i=0; i < stringListIn.size(); i++) {
+        for(String str : stringListIn) {
 
-            String str = stringListIn.get(i);// строка из коллекции
             str = str.replaceAll("[^а-яА-Я a-zA-Z]", "");// удаление всех не буквенных символов
             str = str.toLowerCase();// перевод всех символов в нижний регистр
             String[] strArr =  str.trim().split("\\s+");// разбить строку на массив слов по первому пробелу
@@ -108,20 +105,19 @@ public class Task7 {
         TreeMap<Integer, String> mapFreqSortA = new TreeMap<>();// создать Карту
 
         // заполнить Карту:
-        for(Iterator<String> iter = setOne.iterator(); iter.hasNext();){// проходимся итератором по множеству setOne
-            String val = iter.next();// сохраним очередное значение множества setOne...
-            int freq = Collections.frequency(arrayList, val);// сохраним его частоту
+        for(String setIter : setOne){// для каждой строки из множества setOne
+            int freq = Collections.frequency(arrayList, setIter);// сохраним его частоту
 
             // Для сортировки - если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
             // иначе произойдет замена одного слова другим
             if(mapFreqSortA.containsKey(freq)){
-                val = mapFreqSortA.get(freq)+" "+val;
+                setIter = mapFreqSortA.get(freq)+" "+setIter;
             }
             // Сортировка частот слов по возрастанию ключа (TreeMap)
-            mapFreqSortA.put(freq,val);
+            mapFreqSortA.put(freq,setIter);
         }
 
-        //3. Сортировка частот слов по убыванию ключа
+        // Сортировка частот слов по убыванию ключа
         TreeMap<Integer, String> mapFreqSortD = new TreeMap(Collections.reverseOrder());
         mapFreqSortD.putAll(mapFreqSortA);
 
@@ -137,13 +133,12 @@ public class Task7 {
         TreeMap<Integer, Character> mapFreqSortA = new TreeMap<>();// создать Карту
 
         // заполнить Карту:
-        for(Iterator<Character> iter = setOne.iterator(); iter.hasNext();){// проходимся итератором по множеству setOne
-            char val = iter.next();// сохраним очередное значение множества setOne...
-            int freq = Collections.frequency(arrayList, val);// сохраним его частоту
-            mapFreqSortA.put(freq,val);
+        for(Character setIter : setOne){// для каждого символа из множества setOne
+            int freq = Collections.frequency(arrayList, setIter);// сохраним его частоту
+            mapFreqSortA.put(freq,setIter);
         }
 
-        //3. Сортировка частот слов по убыванию ключа
+        // Сортировка частот слов по убыванию ключа
         TreeMap<Integer, Character> mapFreqSortD = new TreeMap(Collections.reverseOrder());
         mapFreqSortD.putAll(mapFreqSortA);
 
