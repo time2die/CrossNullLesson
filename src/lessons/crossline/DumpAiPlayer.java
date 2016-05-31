@@ -1,3 +1,7 @@
+package lessons.crossline;
+
+import lessons.crossline.data.Point2d;
+
 import java.util.Random;
 
 public class DumpAiPlayer extends AiPlayer {
@@ -14,6 +18,7 @@ public class DumpAiPlayer extends AiPlayer {
         return rnd.nextInt(POLE_SIZE);
     }
 
+
     @Override
     public int getNextX() {
         return getRndInt();
@@ -28,5 +33,6 @@ public class DumpAiPlayer extends AiPlayer {
     public Point2d getNextStep() {
         return new Point2d(getRndInt(), getRndInt());
     }
+
 
 }

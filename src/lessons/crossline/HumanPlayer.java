@@ -1,6 +1,10 @@
+package lessons.crossline;
+
+import lessons.crossline.data.Point2d;
+
 import java.util.Scanner;
 
-public class HumanPlayer extends AbstractPlayer {
+public class HumanPlayer  extends AbstractPlayer {
 
     private Scanner sc = new Scanner(System.in);
     private String playerName;
@@ -8,7 +12,7 @@ public class HumanPlayer extends AbstractPlayer {
 
     public HumanPlayer(String humanName) {
         this.playerName = humanName;
-        this.aChar = 'H';
+        this.aChar = 'H' ;
     }
 
     @Override

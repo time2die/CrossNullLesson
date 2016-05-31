@@ -1,5 +1,7 @@
+package lessons.crossline;
+
 /**
- * Created by home on 17.05.2016.
+ * Created by time2die on 16.05.2016.
  */
 public abstract class AbstractPlayer implements Player {
     protected char aChar = 'H';
@@ -13,4 +15,5 @@ public abstract class AbstractPlayer implements Player {
     public char getChar() {
         return aChar;
     }
+
 }

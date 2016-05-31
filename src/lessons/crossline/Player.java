@@ -1,5 +1,6 @@
-import java.awt.*;
-import java.awt.geom.Point2D;
+package lessons.crossline;
+
+import lessons.crossline.data.Point2d;
 
 public interface Player {
     int getNextX();
