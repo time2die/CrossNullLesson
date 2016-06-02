@@ -31,7 +31,7 @@ public class Task7 {
 
         // карта частот символов
         TreeMap<Integer, Character> mapFreqCharClear =  frequencyMapChar(charListClear);
-
+/**/
         // выводим на экран первые топ 10 слов
         System.out.println("первые топ 20 слов");
         int count = 0;
@@ -42,6 +42,7 @@ public class Task7 {
                 break;
             }
         }
+
 
         // выводим на экран первые топ 5 очищенных символов
         System.out.println("первые топ 5 символов");
@@ -57,9 +58,25 @@ public class Task7 {
         // количество уникальных слов
         Set<String> setOne = new HashSet<>(wordsList);// множество уникальных слов
         System.out.println("\n количество уникальных слов:  " + setOne.size());
+//////////
+/*
+        myInterface myIfc;
 
+        myIfc = () -> {
+            return 98;
+        };
+
+        double a = myIfc.myMeth();
+        */
+
+///////////////
     }
 
+   /*
+    interface myInterface{
+        double myMeth();
+    }
+    */
     /**
      *  Разбивка на символы
      * */
