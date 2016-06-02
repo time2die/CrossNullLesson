@@ -1,5 +1,7 @@
 package lessons.homework;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
@@ -22,23 +24,25 @@ public class Task6 {
         final Map<String, AtomicLong> wordsMap = new ConcurrentHashMap<>();
         final Map<Character, AtomicLong> charsMap = new ConcurrentHashMap<>();
         //Что считать словом не ясно, буду считать все что попадает под паттерн ниже, но в него попадет много однобуквенного мусора
+
         final Pattern pattern = Pattern.compile("([^а-яёА-ЯЁa-zA-Z])");
 
         book.parallelStream().forEach(row -> {
             //разбиваю строку на "слова" по табу, пробелу.
-            final List<String> stringList= Arrays.asList(row.split("\\p{P}?[\\s\\t]+"));
+            final String[] stringList= row.split("\\p{P}?[\\s\\t]+");
 
-            for (String word: stringList){
-                word = word.replaceAll(String.valueOf(pattern), "" ).toLowerCase(); //очищаю строки от знаков препинания и привожу все символы к нижнему регистру
-                if (!word.equals("")){ //после чистки слова может не остаться
-                    wordsMap.putIfAbsent(word, new AtomicLong(0)); //если ключ не существует, то создать
-                    Long counter = wordsMap.get(word).incrementAndGet(); //увеличить счетчик и получить его для сравнения в топе
-                }
-            }
-            for (Character ch : row.toLowerCase().toCharArray()) {
-                charsMap.putIfAbsent(ch, new AtomicLong(0)); //если ключ не существует, то создать
-                charsMap.get(ch).incrementAndGet(); //увеличить счетчик
-            }
+            //добываю слова
+            Arrays.stream(stringList).map(String::toLowerCase).filter(word -> !word.equals("") && word.length() >= 3).forEach(word -> { //не уверен по поводу преобразований здесь. Ну и таки убрал слова меньше 3 букв
+                wordsMap.putIfAbsent(word, new AtomicLong(0)); //если ключ не существует, то создать
+                wordsMap.get(word).incrementAndGet(); //увеличить счетчик и получить его для сравнения в топе
+            });
+
+            //добываю символы
+            row.toLowerCase().chars().mapToObj(value -> (char)value).forEach(value -> {
+                charsMap.putIfAbsent(value, new AtomicLong(0)); //если ключ не существует, то создать
+                charsMap.get(value).incrementAndGet(); //увеличить счетчик
+            });
+
         });
         System.out.println("Top 10 words: "+getTopWords(wordsMap, (long) 10));
         System.out.println("Top 5 chars: "+getTopChars(charsMap, (long) 5));
