@@ -64,15 +64,15 @@ public class Task7 {
         System.out.println("\n количество уникальных слов:  " + setOne.size());
 
 //////////
-/*
-        myInterface myIfc;
+
+        Work7_interface myIfc;
 
         myIfc = () -> {
             return 98;
         };
 
         double a = myIfc.myMeth();
-        */
+ /*       */
 
 ///////////////
     }

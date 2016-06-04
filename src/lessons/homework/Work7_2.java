@@ -6,7 +6,8 @@ import java.util.*;
  * Created by place2work on 04.06.2016.
  */
 
-public class Work7_2 implements Work7_interface {
+//implements Work7_interface
+public class Work7_2  {
 
     /**
      * Меняет местами ключ и значение а так же сортирует по убыванию
@@ -52,7 +53,6 @@ public class Work7_2 implements Work7_interface {
         return mapFreqSort;
     }
 
-
     /**
      *  Разбивка на символы
      * */
@@ -70,6 +70,7 @@ public class Work7_2 implements Work7_interface {
 
         return charStrList;
     }
+
     /**
      *  Разбивка на слова и очистка. Возввращает ArrayList<String>
      * */
@@ -87,13 +88,26 @@ public class Work7_2 implements Work7_interface {
 
         return stringListOut;
     }
-
+    
     /**
      *
      * */
+    public void myFunc(){
+        Work7_interface myIfc;
+
+        myIfc = () -> {
+            return 98;
+        };
+
+        double a = myIfc.myMeth();
+    }
+
+    /**
+     *
+     *
     @Override
     public double myMeth() {
         return 0;
     }
-
+    */
 }
