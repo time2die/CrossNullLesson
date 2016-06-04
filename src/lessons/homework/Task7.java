@@ -20,30 +20,23 @@ public class Task7 {
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
 
+        Work7_1 work7_1 = new Work7_1();
+
         // очистка от небуквенных символов и разбивка на слова
-        ArrayList<String> wordsList = splitWordList(stringList);
+        ArrayList<String> wordsList = work7_1.splitWordList(stringList);
 
         // карта частот слов
-        //TreeMap<Integer, String> mapFreqWord = frequencyMapWord(wordsList);
-        TreeMap<String, Integer> mapFreqWord = frequencyMapWordA(wordsList);
-
-
-
-        /*
-        TreeMap<Integer, String> sortedMap = new TreeMap(Collections.reverseOrder());
-        for (Map.Entry entry : mapFreqWord.entrySet()) {
-            sortedMap.put((Integer) entry.getValue(), (String)entry.getKey());
-        }
-        */
+        TreeMap<String, Integer> mapFreqWord = work7_1.frequencyMapWordA(wordsList);
 
         // разбивка на символы с очисткой от небуквенных символов
-        //ArrayList<Character>  charListClear = splitCharList(wordsList);
+        ArrayList<Character>  charListClear = work7_1.splitCharList(wordsList);
 
         // карта частот символов
-        //TreeMap<Integer, Character> mapFreqCharClear =  frequencyMapChar(charListClear);
+        TreeMap<Integer, Character> mapFreqCharClear =  work7_1.frequencyMapChar(charListClear);
 
         // выводим на экран первые топ 10 слов
         System.out.println("первые топ 20 слов");
+        
         TreeMap<Integer, String> sortedMap = reversMap(mapFreqWord);//
         int count = 0;
         for(Map.Entry e : sortedMap.entrySet()){
@@ -53,7 +46,7 @@ public class Task7 {
                 break;
             }
         }
-/*
+/**/
 
         // выводим на экран первые топ 5 очищенных символов
         System.out.println("первые топ 5 символов");
@@ -65,7 +58,7 @@ public class Task7 {
                 break;
             }
         }
-        */
+
         // количество уникальных слов
         Set<String> setOne = new HashSet<>(wordsList);// множество уникальных слов
         System.out.println("\n количество уникальных слов:  " + setOne.size());
