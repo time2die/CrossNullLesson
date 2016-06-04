@@ -88,36 +88,6 @@ public class Work7_1 {
     }
 
     /**
-     * Создание частотной карты слов
-     * */
-    public TreeMap<Integer, String> frequencyMapWord(ArrayList<String>arrayList){
-        // множество уникальных слов
-        Set<String> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
-        // создать TreeMap с сортировкой по убыванию ключа
-        TreeMap<Integer, String> mapFreqSortA = new TreeMap(Collections.reverseOrder());
-
-        // заполнить Карту:
-        for(String setIter : setOne){// для каждой строки из множества setOne
-            /**/
-            int freq = Collections.frequency(arrayList, setIter);// сохраним его частоту
-
-            // Для сортировки - если такая частота уже есть, то дописать слово через пробел к уже имеющемуся
-            // иначе произойдет замена одного слова другим
-            if(mapFreqSortA.containsKey(freq)){
-                setIter = mapFreqSortA.get(freq)+" "+setIter;
-            }
-            // Сортировка частот слов по убыванию ключа
-            mapFreqSortA.put(freq,setIter);
-
-            //arrayList.remove(setIter);
-
-        }
-
-        return mapFreqSortA;
-    }
-
-
-    /**
      * Создание частотной карты символов
      * */
     public TreeMap<Integer, Character> frequencyMapChar(ArrayList<Character>arrayList){
