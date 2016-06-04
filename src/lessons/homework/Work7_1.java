@@ -64,12 +64,29 @@ public class Work7_1 {
             str = str.toLowerCase();// перевод всех символов в нижний регистр
             for(char ch : str.toCharArray()){// для каждого символа из строки
                 charList.add(ch);
-            }
+             }
         }
 
         return charList;
     }
 
+    /**
+     *  Разбивка на символы
+     * */
+
+    public ArrayList<String> splitCharStrList(List<String>stringListIn){
+
+        ArrayList<String>charStrList = new ArrayList<>();
+
+        for(String str : stringListIn){// для каждой строки из коллекции
+            str = str.toLowerCase();// перевод всех символов в нижний регистр
+            for(char ch : str.toCharArray()){// для каждого символа из строки
+                charStrList.add(Character.toString(ch));
+            }
+        }
+
+        return charStrList;
+    }
     /**
      *  Разбивка на слова и очистка. Возввращает ArrayList<String>
      * */
