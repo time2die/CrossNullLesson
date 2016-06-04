@@ -19,24 +19,25 @@ public class Task6 {
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
 
-        Work6_1 work6_1 = new Work6_1();
+        Work6_2 work6_2 = new Work6_2();
 
         // очистка от небуквенных символов и разбивка на слова
-        ArrayList<String> wordsList = work6_1.splitWordList(stringList);
+        ArrayList<String> wordsList = work6_2.splitWordList(stringList);
 
         // карта частот слов
-        TreeMap<Integer, String> mapFreqWord = work6_1.frequencyMapWord(wordsList);
+        TreeMap<String, Integer> mapFreqWord = work6_2.frequencyMapWordA(wordsList);
 
         // разбивка на символы с очисткой от небуквенных символов
-        ArrayList<Character>  charListClear = work6_1.splitCharList(wordsList);
+        ArrayList<Character>  charListClear = work6_2.splitCharList(wordsList);
 
         // карта частот символов
-        TreeMap<Integer, Character> mapFreqCharClear =  work6_1.frequencyMapChar(charListClear);
+        TreeMap<Integer, Character> mapFreqCharClear =  work6_2.frequencyMapChar(charListClear);
 
         // выводим на экран первые топ 10 слов
         System.out.println("первые топ 20 слов");
+        TreeMap<Integer, String> sortMap = work6_2.reversMap(mapFreqWord);//
         int count = 0;
-        for(Map.Entry e : mapFreqWord.entrySet()){
+        for(Map.Entry e : sortMap.entrySet()){
             System.out.println(e.getKey()+" "+ e.getValue());
             count++;
             if(count==20){
