@@ -6,7 +6,6 @@ import java.util.*;
  * Created by place2work on 04.06.2016.
  */
 
-//implements Work7_interface
 public class Work7_2  {
 
     /**
@@ -88,10 +87,26 @@ public class Work7_2  {
 
         return stringListOut;
     }
-    
+
+    /**
+     * Вывод на экран первые N top значений карты частот
+     * */
+    void printMapFreq(TreeMap<String, Integer> mapFreq, int num){
+        System.out.println("первые топ"+num+"слов");
+        TreeMap<Integer, String> sortedMap = reversMap(mapFreq);//
+        int count = 0;
+        for(Map.Entry e : sortedMap.entrySet()){
+            System.out.println(e.getKey()+" "+ e.getValue());
+            count++;
+            if(count==num){
+                break;
+            }
+        }
+    }
+
     /**
      *
-     * */
+     *
     public void myFunc(){
         Work7_interface myIfc;
 
@@ -100,14 +115,6 @@ public class Work7_2  {
         };
 
         double a = myIfc.myMeth();
-    }
-
-    /**
-     *
-     *
-    @Override
-    public double myMeth() {
-        return 0;
     }
     */
 }

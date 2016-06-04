@@ -35,36 +35,17 @@ public class Task7 {
         TreeMap<String, Integer> mapFreqCharClear = work7.frequencyMapWordA(charListClear);
 
         // выводим на экран первые топ 10 слов
-        System.out.println("первые топ 20 слов");
-        TreeMap<Integer, String> sortedMap = work7.reversMap(mapFreqWord);//
-        int count = 0;
-        for(Map.Entry e : sortedMap.entrySet()){
-            System.out.println(e.getKey()+" "+ e.getValue());
-            count++;
-            if(count==20){
-                break;
-            }
-        }
-/**/
+        work7.printMapFreq(mapFreqWord, 10);
 
         // выводим на экран первые топ 5 очищенных символов
-        TreeMap<Integer, String> sortedMap1 = work7.reversMap(mapFreqCharClear);//
-        System.out.println("первые топ 5 символов");
-        int count2 = 0;
-        for(Map.Entry e : sortedMap1.entrySet()){
-            System.out.println(e.getKey()+" "+ e.getValue());
-            count2++;
-            if(count2==5){
-                break;
-            }
-        }
+        work7.printMapFreq(mapFreqCharClear, 5);
 
         // количество уникальных слов
         Set<String> setOne = new HashSet<>(wordsList);// множество уникальных слов
         System.out.println("\n количество уникальных слов:  " + setOne.size());
 
 //////////
-
+/*
         Work7_interface myIfc;
 
         myIfc = () -> {
@@ -72,7 +53,7 @@ public class Task7 {
         };
 
         double a = myIfc.myMeth();
- /*       */
+       */
 
 ///////////////
     }
