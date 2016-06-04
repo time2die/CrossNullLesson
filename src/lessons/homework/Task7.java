@@ -36,7 +36,7 @@ public class Task7 {
 
         // выводим на экран первые топ 10 слов
         System.out.println("первые топ 20 слов");
-        TreeMap<Integer, String> sortedMap = reversMap(mapFreqWord);//
+        TreeMap<Integer, String> sortedMap = work7_1.reversMap(mapFreqWord);//
         int count = 0;
         for(Map.Entry e : sortedMap.entrySet()){
             System.out.println(e.getKey()+" "+ e.getValue());
