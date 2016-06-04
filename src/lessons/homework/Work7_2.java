@@ -6,7 +6,7 @@ import java.util.*;
  * Created by place2work on 04.06.2016.
  */
 
-public class Work7_2 {
+public class Work7_2 implements Work7_interface {
 
     /**
      * Меняет местами ключ и значение а так же сортирует по убыванию
@@ -52,23 +52,6 @@ public class Work7_2 {
         return mapFreqSort;
     }
 
-    /**
-     *  Разбивка на символы
-     * */
-
-    public ArrayList<Character> splitCharList(List<String>stringListIn){
-
-        ArrayList<Character>charList = new ArrayList<>();
-
-        for(String str : stringListIn){// для каждой строки из коллекции
-            str = str.toLowerCase();// перевод всех символов в нижний регистр
-            for(char ch : str.toCharArray()){// для каждого символа из строки
-                charList.add(ch);
-            }
-        }
-
-        return charList;
-    }
 
     /**
      *  Разбивка на символы
@@ -106,21 +89,11 @@ public class Work7_2 {
     }
 
     /**
-     * Создание частотной карты символов
+     *
      * */
-    public TreeMap<Integer, Character> frequencyMapChar(ArrayList<Character>arrayList){
-        // множество уникальных слов
-        HashSet<Character> setOne = new HashSet<>(arrayList);// множество значений arrayList для ключей Map
-        // создать TreeMap с сортировкой по убыванию ключа
-        TreeMap<Integer, Character> mapFreqSortA = new TreeMap(Collections.reverseOrder());
-
-        // заполнить Карту:
-        for(Character setIter : setOne){// для каждого символа из множества setOne
-            mapFreqSortA.put(Collections.frequency(arrayList,setIter), setIter);// сохраним частоту и значение
-        }
-
-        return mapFreqSortA;
+    @Override
+    public double myMeth() {
+        return 0;
     }
-
 
 }

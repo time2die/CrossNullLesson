@@ -29,11 +29,9 @@ public class Task7 {
         TreeMap<String, Integer> mapFreqWord = work7.frequencyMapWordA(wordsList);
 
         // разбивка на символы с очисткой от небуквенных символов
-        //ArrayList<Character> charListClear = work7_1.splitCharList(wordsList);
         ArrayList<String> charListClear = work7.splitCharStrList(wordsList);
 
         // карта частот символов
-        //TreeMap<Integer, Character> mapFreqCharClear =  work7_1.frequencyMapChar(charListClear);
         TreeMap<String, Integer> mapFreqCharClear = work7.frequencyMapWordA(charListClear);
 
         // выводим на экран первые топ 10 слов
@@ -79,10 +77,6 @@ public class Task7 {
 ///////////////
     }
 
-   /*
-    interface myInterface{
-        double myMeth();
-    }
-    */
+
 
 }
