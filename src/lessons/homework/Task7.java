@@ -20,25 +20,25 @@ public class Task7 {
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
 
-        Work7_2 work7_2 = new Work7_2();
+        Work7_2 work7 = new Work7_2();
 
         // очистка от небуквенных символов и разбивка на слова
-        ArrayList<String> wordsList = work7_2.splitWordList(stringList);
+        ArrayList<String> wordsList = work7.splitWordList(stringList);
 
         // карта частот слов
-        TreeMap<String, Integer> mapFreqWord = work7_2.frequencyMapWordA(wordsList);
+        TreeMap<String, Integer> mapFreqWord = work7.frequencyMapWordA(wordsList);
 
         // разбивка на символы с очисткой от небуквенных символов
         //ArrayList<Character> charListClear = work7_1.splitCharList(wordsList);
-        ArrayList<String> charListClear = work7_2.splitCharStrList(wordsList);
+        ArrayList<String> charListClear = work7.splitCharStrList(wordsList);
 
         // карта частот символов
         //TreeMap<Integer, Character> mapFreqCharClear =  work7_1.frequencyMapChar(charListClear);
-        TreeMap<String, Integer> mapFreqCharClear = work7_2.frequencyMapWordA(charListClear);
+        TreeMap<String, Integer> mapFreqCharClear = work7.frequencyMapWordA(charListClear);
 
         // выводим на экран первые топ 10 слов
         System.out.println("первые топ 20 слов");
-        TreeMap<Integer, String> sortedMap = work7_2.reversMap(mapFreqWord);//
+        TreeMap<Integer, String> sortedMap = work7.reversMap(mapFreqWord);//
         int count = 0;
         for(Map.Entry e : sortedMap.entrySet()){
             System.out.println(e.getKey()+" "+ e.getValue());
@@ -50,7 +50,7 @@ public class Task7 {
 /**/
 
         // выводим на экран первые топ 5 очищенных символов
-        TreeMap<Integer, String> sortedMap1 = work7_2.reversMap(mapFreqCharClear);//
+        TreeMap<Integer, String> sortedMap1 = work7.reversMap(mapFreqCharClear);//
         System.out.println("первые топ 5 символов");
         int count2 = 0;
         for(Map.Entry e : sortedMap1.entrySet()){
