@@ -98,15 +98,13 @@ public class Work7_3 {
      * Вывод на экран первые N top значений карты частот
      * */
     void printMapFreq(TreeMap<String, Integer> mapFreq, int num){
+
         System.out.println("первые топ"+num+"слов");
-        TreeMap<Integer, String> sortedMap = reversMap(mapFreq);//
-        int count = 0;
-        for(Map.Entry e : sortedMap.entrySet()){
-            System.out.println(e.getKey()+" "+ e.getValue());
-            count++;
-            if(count==num){
-                break;
-            }
-        }
+        TreeMap<Integer, String> sortedMap = reversMap(mapFreq);//реверс карты
+
+        sortedMap.entrySet().stream()
+                .limit(num)
+                .forEach(e -> System.out.println(e.getKey()+" "+ e.getValue()));
+
     }
 }
