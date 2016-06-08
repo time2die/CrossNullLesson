@@ -11,16 +11,38 @@ import java.util.stream.Stream;
 public class Work7_3 {
 
     /**
+     * Сортировка map по значению от большего к меньшему
+     * */
+    /**/
+    public Map<Integer, String> reversMap2(Map<Integer, String> inMap){
+
+        Map<Integer, String> outMap =
+                inMap.entrySet().stream()
+                        //.sorted(Map.Entry.comparingByValue())// от меньшего к большему
+                        .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                                (e1, e2) -> e1, LinkedHashMap::new));
+
+
+        return outMap;
+    }
+
+
+    /**
      * Меняет местами ключ и значение а так же сортирует по убыванию
      * */
+    /**/
     public TreeMap<Integer, String> reversMap(TreeMap<String, Integer> treeMap){
-        TreeMap<Integer, String> flipMap = new TreeMap(Collections.reverseOrder());
+        TreeMap<Integer, String> flipMap = new TreeMap<>(Collections.reverseOrder());
+
         for (Map.Entry entry : treeMap.entrySet()) {
             flipMap.put((Integer) entry.getValue(), (String)entry.getKey());
         }
 
+
         return flipMap;
     }
+
 
     /**
      * Карта частот слов сортированная по возрастанию
@@ -99,12 +121,13 @@ public class Work7_3 {
      * */
     void printMapFreq(TreeMap<String, Integer> mapFreq, int num){
 
-        System.out.println("первые топ"+num+"слов");
-        TreeMap<Integer, String> sortedMap = reversMap(mapFreq);//реверс карты
-
+        System.out.println("первые топ "+num+" слов");
+        TreeMap<Integer, String> sortedMap = reversMap(mapFreq);//
         sortedMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .limit(num)
-                .forEach(e -> System.out.println(e.getKey()+" "+ e.getValue()));
+
+                .forEach(e -> System.out.println(e.getKey()+"\t"+ e.getValue()));
 
     }
 }
