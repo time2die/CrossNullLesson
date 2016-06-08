@@ -20,7 +20,7 @@ public class Task7 {
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
 
-        Work7_3 work73 = new Work7_3();
+        Work7_4 work73 = new Work7_4();
 
         // очистка от небуквенных символов и разбивка на слова
         List<String> wordsList = work73.splitWordList(stringList);
