@@ -20,6 +20,8 @@ public class Task7 {
         List<String> stringList =  new ArrayList<>();
         stringList.addAll(ReadInput.readText());
 
+        ReadInput.readTextFile();// чтение файлов из папки проекта
+
         Work7_4 work73 = new Work7_4();
 
         // очистка от небуквенных символов и разбивка на слова
